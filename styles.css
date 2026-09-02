@@ -1,0 +1,283 @@
+/* Noah's Ark Pet Bank
+   Palette and type take their cue from Donna's hand-drawn logo:
+   aubergine ink on warm bone paper, with a marigold used only for actions. */
+
+:root {
+  color-scheme: light;
+
+  --ink:        #3A222B;
+  --ink-soft:   #5C4048;
+  --muted:      #7C6A63;
+  --paper:      #F4EEE2;
+  --paper-deep: #EBE2D0;
+  --surface:    #FFFDF8;
+  --rule:       #DDD1BC;
+  --marigold:   #B0551F;
+  --marigold-d: #8C4318;
+
+  --display: "Alegreya", Georgia, "Times New Roman", serif;
+  --body: "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --measure: 34rem;
+  --page: 62rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--marigold-d); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { color: var(--ink); }
+a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--marigold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+h1, h2, h3 { font-family: var(--display); font-weight: 700; text-wrap: balance; margin: 0; }
+p, ul, ol { margin: 0; }
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  background: var(--paper-deep);
+  border-bottom: 1px solid var(--rule);
+  text-align: center;
+  padding: 2.75rem 1.25rem 2.25rem;
+}
+.masthead img {
+  width: 158px;
+  margin: 0 auto 1.1rem;
+  mix-blend-mode: multiply;
+}
+.masthead h1 {
+  font-size: clamp(2.1rem, 6vw, 3.1rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.masthead .tagline {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+  color: var(--ink-soft);
+  margin-top: 0.55rem;
+}
+
+/* ---------- navigation ---------- */
+
+.sitenav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
+}
+.sitenav ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0.6rem 1rem;
+  max-width: var(--page);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1.6rem;
+}
+.sitenav a {
+  font-size: 0.8rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.35rem 0;
+  display: inline-block;
+}
+.sitenav a:hover { color: var(--marigold-d); }
+
+/* ---------- page rhythm ---------- */
+
+main {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+section {
+  padding: 3.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+section:last-of-type { border-bottom: none; }
+
+section > * + * { margin-top: 1.1rem; }
+
+h2 {
+  font-size: clamp(1.55rem, 4vw, 2.05rem);
+  line-height: 1.15;
+}
+h3 {
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+section p, section ul, section ol { max-width: var(--measure); }
+section ul, section ol { padding-left: 1.15rem; }
+section li + li { margin-top: 0.4rem; }
+li::marker { color: var(--muted); }
+
+.lede {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+/* ---------- action ---------- */
+
+.btn {
+  display: inline-block;
+  background: var(--marigold);
+  color: #FFFDF8;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 3px;
+}
+.btn:hover { background: var(--marigold-d); color: #FFFDF8; }
+
+/* ---------- the numbers ---------- */
+
+.years {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: none;
+}
+.years > div { background: var(--surface); padding: 1.25rem 1.35rem; }
+.years dt {
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+.years dd {
+  margin: 0.3rem 0 0;
+  font-family: var(--display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.years .qual {
+  display: block;
+  font-family: var(--body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  margin-top: 0.35rem;
+}
+
+/* ---------- ways to help ---------- */
+
+.ways {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.25rem;
+  max-width: none;
+  padding: 0;
+  list-style: none;
+}
+.ways li { margin: 0; }
+.ways article {
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.ways h3 { font-size: 1.1rem; }
+.ways p { font-size: 0.97rem; max-width: none; }
+
+/* ---------- needs list ---------- */
+
+.needs { list-style: none; padding: 0; max-width: var(--measure); }
+.needs li {
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.35rem 1.1rem;
+  align-items: baseline;
+}
+.needs li + li { margin-top: 0; }
+.needs li:last-child { border-bottom: 1px solid var(--rule); }
+.needs .what { font-weight: 700; }
+.needs .why { color: var(--ink-soft); font-size: 0.97rem; }
+
+/* ---------- pull quote / call-out ---------- */
+
+.callout {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 4px;
+  padding: 1.75rem;
+  max-width: none;
+}
+.callout h2, .callout h3 { color: var(--paper); }
+.callout p { color: #E8DDD0; max-width: var(--measure); }
+.callout a { color: #F0C08A; }
+.callout a:hover { color: #FFFDF8; }
+.callout > * + * { margin-top: 0.8rem; }
+
+/* ---------- footer ---------- */
+
+.sitefooter {
+  background: var(--paper-deep);
+  border-top: 1px solid var(--rule);
+  margin-top: 1rem;
+  padding: 2.5rem 1.25rem;
+}
+.sitefooter .inner {
+  max-width: var(--page);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.sitefooter .fine { font-size: 0.83rem; color: var(--muted); }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 40rem) {
+  .needs li { grid-template-columns: 1fr; }
+  body { font-size: 1rem; }
+  section { padding: 2.5rem 0; }
+  .masthead { padding: 2rem 1rem 1.75rem; }
+  .masthead img { width: 128px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a, .btn { transition: background-color .15s ease, color .15s ease; }
+}
