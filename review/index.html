@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Review the site — Noah's Ark Pet Bank</title>
+  <link rel="icon" href="../noah-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,700;1,400;1,500&family=Karla:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    :root { --edit:#2C6B5B; --edit-soft:#E4EFEA; }
+
+    .bar { position:sticky; top:0; z-index:60; background:var(--ink); color:var(--paper);
+           padding:.7rem 1rem; display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1rem; }
+    .bar strong { font-family:var(--display); font-size:1.05rem; }
+    .bar .spacer { flex:1 1 auto; }
+    .bar .status { font-size:.85rem; color:#D9C7B4; min-height:1.2em; }
+    .bar button { font:inherit; cursor:pointer; border-radius:3px; }
+    .bar .send { background:var(--marigold); color:#FFFDF8; border:none; font-weight:700; padding:.5rem 1.15rem; }
+    .bar .send:hover { background:#C9631F; }
+    .bar .ghost { background:transparent; color:#F0C08A; border:1px solid #6B4A50; padding:.45rem .9rem; font-size:.9rem; }
+    .bar .ghost:hover { color:#FFFDF8; border-color:#9A7078; }
+
+    .brief { background:var(--paper-deep); border-bottom:1px solid var(--rule); padding:1.75rem 1.25rem; }
+    .brief .inner { max-width:34rem; margin:0 auto; display:flex; flex-direction:column; gap:.7rem; }
+    .brief h1 { font-size:clamp(1.5rem,4.5vw,2rem); line-height:1.15; }
+    .brief p { font-size:1rem; color:var(--ink-soft); }
+
+    [data-edit] { border-radius:3px; }
+    body.editing [data-edit] { background:var(--edit-soft); box-shadow:0 0 0 1px #BFD8CF;
+      padding:.15rem .35rem; margin-left:-.35rem; margin-right:-.35rem; cursor:text; }
+    body.editing .callout [data-edit] { background:#40282F; box-shadow:0 0 0 1px #6B4A50; }
+    body.editing [data-edit]:hover { box-shadow:0 0 0 1px var(--edit); }
+    [data-edit]:focus { outline:2px solid var(--edit); outline-offset:1px; }
+    .edithint { display:none; font-size:.8rem; color:var(--edit); font-weight:700;
+      letter-spacing:.07em; text-transform:uppercase; max-width:none; }
+    body.editing .edithint { display:block; }
+
+    .qs { list-style:none; padding:0; display:flex; flex-direction:column; gap:1.1rem; max-width:none; }
+    .qs li { margin:0; background:var(--surface); border:1px solid var(--rule); border-radius:3px; padding:1.1rem; }
+    .qs .qtext { font-weight:700; display:block; }
+    .qs .qwhy { display:block; font-size:.9rem; color:var(--ink-soft); margin:.15rem 0 .7rem; }
+    .choices { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:.6rem; }
+    .choices label { border:1px solid var(--rule); border-radius:99px; padding:.35rem 1rem;
+      font-size:.95rem; cursor:pointer; background:var(--paper); user-select:none; }
+    .choices input { position:absolute; opacity:0; width:1px; height:1px; margin:0; }
+    .choices label:has(input:checked) { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+    .choices label:has(input:focus-visible) { outline:3px solid var(--edit); outline-offset:2px; }
+    textarea { width:100%; font:inherit; font-size:.95rem; padding:.6rem .7rem; border:1px solid var(--rule);
+      border-radius:3px; background:var(--paper); color:var(--ink); resize:vertical; }
+    .tip { background:var(--edit-soft); border-left:3px solid var(--edit); border-radius:0 3px 3px 0;
+      padding:.9rem 1.1rem; font-size:.95rem; color:var(--ink-soft); max-width:none; }
+    .bigsend { display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; }
+    .bigsend button { font:inherit; font-weight:700; cursor:pointer; border-radius:3px; }
+    .bigsend .send { background:var(--marigold); color:#FFFDF8; border:none; padding:.8rem 1.6rem; font-size:1.05rem; }
+    .bigsend .send:hover { background:var(--marigold-d); }
+    .bigsend .alt { background:var(--surface); border:1px solid var(--marigold); color:var(--marigold-d); padding:.75rem 1.3rem; }
+    .bigsend .alt:hover { background:var(--marigold); color:#FFFDF8; }
+    .saved { font-size:.88rem; color:var(--muted); }
+    @media (max-width:40rem){ .bar .ghost { display:none; } }
+  </style>
+</head>
+<body class="editing">
+
+<div class="bar">
+  <strong>Site review</strong>
+  <button class="ghost" id="toggle" type="button">Editing: on</button>
+  <span class="spacer"></span>
+  <span class="status" id="status" role="status"></span>
+  <button class="send" id="sendTop" type="button">Send my answers</button>
+</div>
+
+<div class="brief">
+  <div class="inner">
+    <h1>Donna &mdash; this is the new website</h1>
+    <p>I wrote all of it from your own 2023 activities write-up and the accounting sheet, so
+      there&rsquo;s nothing for you to compose. Just read it and tell me where I got it wrong.</p>
+    <p>Anything highlighted in green you can click and type over, right here on the page. Then answer
+      the seven questions at the bottom and press <strong>Send my answers</strong>. Your work is saved
+      on this phone as you go, so you can stop and come back.</p>
+  </div>
+</div>
+
+<header class="masthead">
+  <img src="../noah-logo.png" alt="Noah's Ark Pet Bank logo: a dog and a cat inside a circle, surrounded by hearts.">
+  <h1>Noah's Ark Pet Bank</h1>
+  <p class="tagline" data-edit="tagline">Nobody should have to give up their animal because they can't afford to feed it.</p>
+</header>
+
+<main>
+  <section>
+    <span class="edithint">Click any green text to fix it</span>
+    <h2>What we do</h2>
+    <p class="lede" data-edit="about_lede">We collect donated pet food and supplies, and we give them to people who need them. That's the whole of it.</p>
+    <p data-edit="about_1">Noah's Ark Pet Bank operates out of Westminster, Colorado, and serves people across the surrounding Denver metro area. Most of the people we help are unhoused or close to it, and most of them are feeding their animal before they feed themselves. A bag of kibble is a small thing to hand someone. It is often the thing that lets them keep a companion they would otherwise have to surrender.</p>
+    <p data-edit="about_2">We are volunteer-run. There is no office, no paid staff and no overhead worth mentioning. Food comes in each week and goes back out the same way.</p>
+  </section>
+
+  <section>
+    <h2>Our story</h2>
+    <p data-edit="story_1">Donna Rangel founded Noah's Ark Pet Bank in June 2023, and the organization was recognized as a nonprofit later that year. She started it for a straightforward reason: she kept meeting people living rough who had a dog or a cat with them, and there was food assistance for the person and nothing for the animal.</p>
+    <p data-edit="story_2">The work took shape quickly. By the end of that first partial year there was a weekly collection route, a quarterly one, and a steady flow of supplies moving out to people who needed them.</p>
+  </section>
+
+  <section>
+    <h2>Where the food comes from</h2>
+    <p data-edit="sources_intro">Almost everything we distribute is donated in kind, by organizations with more supply than they can use and by individuals who want to help.</p>
+    <ul>
+      <li data-edit="source_1"><strong>Foothills Animal Shelter</strong> &mdash; a weekly pickup of food and supplies, and the backbone of what we hand out.</li>
+      <li data-edit="source_2"><strong>Colorado Pet Bank</strong> &mdash; a larger quarterly pickup.</li>
+      <li data-edit="source_3"><strong>Individual donors</strong> &mdash; bags, cans, leashes, bowls, and occasionally cash for something specific, like kitten formula.</li>
+    </ul>
+    <p data-edit="sources_outro">We are always looking for another regular source. If your shelter, store, church or rescue has surplus pet food, we will come and collect it.</p>
+  </section>
+
+  <section>
+    <h2>The numbers</h2>
+    <dl class="years">
+      <div><dt>2023 &middot; half a year</dt><dd>$11,525<span class="qual">In food, supplies and cash received between June and December. Twenty-six weekly pickups in six months.</span></dd></div>
+      <div><dt>2024 &middot; first full year</dt><dd>$27,525<span class="qual">Received across the year, of which $27,080 went back out to people and their animals.</span></dd></div>
+      <div><dt>Cash, in 2023</dt><dd>$125<span class="qual">The entire cash total for the year. Everything else arrived as food and supplies, and left the same way.</span></dd></div>
+    </dl>
+    <p class="tip">These come straight from the accounting sheet, so don't edit them here. If they look
+      wrong, say so in question&nbsp;7.</p>
+  </section>
+
+  <section>
+    <div class="callout">
+      <h2>If you need pet food, ask us</h2>
+      <p data-edit="help_body">You do not need to prove anything to us, and there is no wrong way to ask. Send an email and tell us what animals you have and roughly where you are, and we will tell you when and where we can get supplies to you.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ways to give</h2>
+    <ul class="ways">
+      <li><article><h3>Food and supplies</h3><p data-edit="give_1">Dry dog and cat food is what we run through fastest. We also take treats, bowls, leashes, collars, litter and kitten formula. Email us and we will arrange a drop-off or come and collect it.</p></article></li>
+      <li><article><h3>Your time</h3><p data-edit="give_2">Collection runs, sorting, distribution days, and help finding new donation partners. Regular hours are welcome and so is one afternoon.</p></article></li>
+      <li><article><h3>A standing supply</h3><p data-edit="give_3">If you run a shelter, rescue, pet store, grocery or church food bank, a recurring donation of surplus stock is the single most valuable thing anyone gives us.</p></article></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What we're working toward</h2>
+    <p>Taken from your own 2024 goals, in the order you listed them.</p>
+    <ul class="needs">
+      <li><span class="what">A van</span><span class="why" data-edit="need_van">Collection runs happen in a personal car. A van would multiply how much we can pick up in a single trip.</span></li>
+      <li><span class="what">Storage</span><span class="why" data-edit="need_storage">A location with lockable cabinets, so supplies are already waiting where we distribute instead of being carried in each time.</span></li>
+      <li><span class="what">Three more partner churches</span><span class="why" data-edit="need_churches">Working alongside an existing human food bank is the most efficient way we have found to reach people who need us.</span></li>
+      <li><span class="what">A second driver</span><span class="why" data-edit="need_driver">One person currently does the collecting. That is the ceiling on how much we can move.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Photos</h2>
+    <p>This is the one thing nobody else can supply, and it's the difference between the site looking
+      brand new and looking like a real operation. Four to six is plenty: a distribution day, a
+      collection run, the supplies stacked up, an animal or two. Phone photos are exactly right.</p>
+    <p class="tip"><strong>The easy way:</strong> when you press <em>Send my answers</em>, your email app
+      opens with everything already written out. Attach the photos to that same email before you send
+      it, and everything arrives together.</p>
+  </section>
+
+  <section>
+    <h2>Seven questions</h2>
+    <p>Short answers are fine. &ldquo;Not sure&rdquo; is a real answer.</p>
+    <ul class="qs" id="qs"></ul>
+  </section>
+
+  <section>
+    <h2>Anything else</h2>
+    <ul class="qs">
+      <li>
+        <span class="qtext">Is there anything missing, or anything here you'd rather we didn't say?</span>
+        <span class="qwhy">Goes straight to xian, nowhere else.</span>
+        <textarea id="freeform" rows="4" placeholder="Type anything at all"></textarea>
+      </li>
+    </ul>
+    <p class="tip"><strong>Two things left off the site on purpose.</strong> There's nothing saying
+      donations are tax-deductible, because the IRS paperwork isn't settled and I don't want to claim
+      something we can't back up yet. And your address isn't on the site &mdash; question&nbsp;5 is
+      where you tell me what you want there.</p>
+  </section>
+
+  <section>
+    <h2>Send it</h2>
+    <div class="bigsend">
+      <button class="send" id="sendBig" type="button">Send my answers</button>
+      <button class="alt" id="copyBig" type="button">Copy instead</button>
+    </div>
+    <p class="saved" id="savedNote">Your answers are saved on this device as you type.</p>
+  </section>
+</main>
+
+<footer class="sitefooter">
+  <div class="inner">
+    <p><strong>Noah's Ark Pet Bank</strong> &middot; Westminster, Colorado</p>
+    <p class="fine">This review page isn't linked from the site and search engines are asked to skip it.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var TO = "xian@pobox.com";
+  var KEY = "ark-site-review";
+
+  var QUESTIONS = [
+    { id:"partners", q:"May we name Foothills Animal Shelter and Colorado Pet Bank on the site?",
+      why:"Naming real sources makes us look established — but only if they're comfortable with it." },
+    { id:"schedule", q:"Is there a regular time and place you hand things out?",
+      why:"If there is, the site should say so. If it's arranged case by case, it should say that instead." },
+    { id:"money", q:"Is there a way for people to send money?",
+      why:"PayPal, Venmo, Zelle, a bank account — anything. If not, the site just won't ask for money." },
+    { id:"phone", q:"Should a phone number be on the site?",
+      why:"Easier for people to reach you. Also harder to ignore the ones you'd rather ignore." },
+    { id:"address", q:"Should a mailing address be on the site?",
+      why:"The address on file right now is your apartment. A PO box would be safer if we ever want one." },
+    { id:"area", q:"Is “Westminster and the surrounding Denver metro area” right?",
+      why:"If you really cover a smaller area, we should say that instead." },
+    { id:"numbers", q:"Do the story and the numbers on this page look right to you?",
+      why:"They came from documents, not from memory, so they might be out of date." }
+  ];
+  var CHOICES = ["Yes", "No", "Not sure"];
+  var state = { text:{}, answers:{}, notes:{}, freeform:"" };
+
+  function $(id){ return document.getElementById(id); }
+  var statusEl = $("status");
+  function say(m){ statusEl.textContent = m || ""; }
+
+  function persist(){
+    try { localStorage.setItem(KEY, JSON.stringify(state)); say("Saved on this device."); }
+    catch(e){ say(""); }
+  }
+
+  function buildQuestions(){
+    var ul = $("qs");
+    QUESTIONS.forEach(function(item, i){
+      var li = document.createElement("li");
+      var t = document.createElement("span"); t.className = "qtext"; t.textContent = (i+1) + ". " + item.q;
+      var w = document.createElement("span"); w.className = "qwhy"; w.textContent = item.why;
+      var row = document.createElement("div"); row.className = "choices";
+      CHOICES.forEach(function(c){
+        var lab = document.createElement("label");
+        var inp = document.createElement("input");
+        inp.type = "radio"; inp.name = "q_" + item.id; inp.value = c;
+        inp.addEventListener("change", function(){ state.answers[item.id] = c; persist(); });
+        var sp = document.createElement("span"); sp.textContent = c;
+        lab.appendChild(inp); lab.appendChild(sp); row.appendChild(lab);
+      });
+      var ta = document.createElement("textarea");
+      ta.rows = 2; ta.id = "note_" + item.id; ta.placeholder = "Anything to add?";
+      ta.addEventListener("input", function(){ state.notes[item.id] = ta.value; persist(); });
+      li.appendChild(t); li.appendChild(w); li.appendChild(row); li.appendChild(ta);
+      ul.appendChild(li);
+    });
+  }
+
+  function wireEditing(){
+    document.querySelectorAll("[data-edit]").forEach(function(el){
+      el.setAttribute("contenteditable","true");
+      el.setAttribute("spellcheck","true");
+      el.addEventListener("input", function(){
+        state.text[el.dataset.edit] = el.innerText.replace(/\s+/g," ").trim();
+        persist();
+      });
+    });
+    $("toggle").addEventListener("click", function(){
+      var on = document.body.classList.toggle("editing");
+      document.querySelectorAll("[data-edit]").forEach(function(el){
+        el.setAttribute("contenteditable", on ? "true" : "false");
+      });
+      $("toggle").textContent = "Editing: " + (on ? "on" : "off");
+    });
+  }
+
+  function restore(){
+    var raw;
+    try { raw = localStorage.getItem(KEY); } catch(e){ return; }
+    if (!raw) return;
+    var s;
+    try { s = JSON.parse(raw); } catch(e){ return; }
+    if (!s || typeof s !== "object") return;
+    ["text","answers","notes"].forEach(function(k){ if (s[k] && typeof s[k] === "object") state[k] = s[k]; });
+    if (typeof s.freeform === "string") state.freeform = s.freeform;
+
+    Object.keys(state.text).forEach(function(k){
+      var el = document.querySelector('[data-edit="' + k + '"]');
+      if (el) el.textContent = state.text[k];
+    });
+    Object.keys(state.answers).forEach(function(k){
+      var inp = document.querySelector('input[name="q_' + k + '"][value="' + state.answers[k] + '"]');
+      if (inp) inp.checked = true;
+    });
+    Object.keys(state.notes).forEach(function(k){
+      var ta = $("note_" + k); if (ta) ta.value = state.notes[k];
+    });
+    $("freeform").value = state.freeform;
+    say("Picked up where you left off.");
+  }
+
+  function summary(){
+    var out = ["Donna's answers on the Noah's Ark site", ""];
+    QUESTIONS.forEach(function(item, i){
+      out.push((i+1) + ". " + item.q);
+      out.push("   " + (state.answers[item.id] || "(no answer)") +
+               (state.notes[item.id] ? " - " + state.notes[item.id] : ""));
+    });
+    if (state.freeform) out.push("", "Anything else:", state.freeform);
+    var keys = Object.keys(state.text);
+    if (keys.length) {
+      out.push("", "--- text Donna rewrote ---");
+      keys.forEach(function(k){ out.push("", "[" + k + "]", state.text[k]); });
+    }
+    out.push("", "(Photos attached to this email, hopefully.)");
+    return out.join("\n");
+  }
+
+  function copyText(text, done){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function(){ window.prompt("Copy this:", text); });
+    } else { window.prompt("Copy this:", text); }
+  }
+
+  function send(){
+    var body = summary();
+    var subject = "My answers on the Noah's Ark website";
+    var href = "mailto:" + TO + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    if (href.length > 1800) {
+      copyText(body, function(){});
+      href = "mailto:" + TO + "?subject=" + encodeURIComponent(subject) +
+             "&body=" + encodeURIComponent("My answers are copied — paste them here, and attach the photos.\n\n");
+      say("Answers copied. Paste them into the email that just opened.");
+    } else {
+      say("Your email app should be opening. Attach photos before you send.");
+    }
+    window.location.href = href;
+  }
+
+  buildQuestions();
+  wireEditing();
+  $("freeform").addEventListener("input", function(){ state.freeform = $("freeform").value; persist(); });
+  restore();
+  $("sendTop").addEventListener("click", send);
+  $("sendBig").addEventListener("click", send);
+  $("copyBig").addEventListener("click", function(){
+    copyText(summary(), function(){
+      $("savedNote").textContent = "Copied. Paste it into a text or an email to xian.";
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
