@@ -61,6 +61,26 @@
     .bigsend .alt:hover { background:var(--marigold); color:#FFFDF8; }
     .saved { font-size:.88rem; color:var(--muted); }
     @media (max-width:40rem){ .bar .ghost { display:none; } }
+
+    /* ---- photos (move to styles.css when this goes live) ---- */
+    figure { margin:0; }
+    section > figure, section > .trio { margin-top:1.5rem; }
+    figure img { width:100%; border-radius:3px; background:var(--paper-deep); }
+    figcaption { font-family:var(--display); font-style:italic; font-size:1.08rem; line-height:1.4;
+      color:var(--ink-soft); margin-top:.55rem; }
+    .hero { max-width:26rem; margin:0 auto; padding:2rem 1.25rem 0; }
+    .hero img { aspect-ratio:1/1; object-fit:cover; object-position:50% 35%; }
+    .steps { list-style:none; counter-reset:step; padding:0; max-width:none;
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:2rem 1.5rem; }
+    section .steps li + li { margin-top:0; }
+    .steps li { counter-increment:step; }
+    .steps img { aspect-ratio:4/5; object-fit:cover; }
+    .steps figcaption::before { content:counter(step) ". "; font-style:normal; font-weight:700; color:var(--marigold-d); }
+    .wide { max-width:var(--measure); }
+    .trio { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; max-width:var(--measure); }
+    .trio img { aspect-ratio:3/4; object-fit:cover; }
+    .trio figcaption { font-size:.92rem; }
+    @media (max-width:30rem){ .trio { grid-template-columns:1fr 1fr; } }
   </style>
 </head>
 <body class="editing">
@@ -75,45 +95,74 @@
 
 <div class="brief">
   <div class="inner">
-    <h1>Donna &mdash; this is the new website</h1>
-    <p>I wrote all of it from your own 2023 activities write-up and the accounting sheet, so
-      there&rsquo;s nothing for you to compose. Just read it and tell me where I got it wrong.</p>
-    <p>Anything highlighted in green you can click and type over, right here on the page. Then answer
-      the seven questions at the bottom and press <strong>Send my answers</strong>. Your work is saved
-      on this phone as you go, so you can stop and come back.</p>
+    <h1>Donna &mdash; your photos are on the site</h1>
+    <p>This is a preview, not the real site. Nothing here goes live until you say yes.</p>
+    <p>Have a look at where the pictures are and at the words under them. Those are your words,
+      tidied a little. Anything in green you can tap and fix. Then answer the three questions at the
+      bottom and press <strong>Send my answers</strong>.</p>
+    <p>Just the photos this time. The rest of the words we will go through together another day.</p>
   </div>
 </div>
 
 <header class="masthead">
   <img src="../noah-logo.png" alt="Noah's Ark Pet Bank logo: a dog and a cat inside a circle, surrounded by hearts.">
   <h1>Noah's Ark Pet Bank</h1>
-  <p class="tagline" data-edit="tagline">Nobody should have to give up their animal because they can't afford to feed it.</p>
+  <p class="tagline">Nobody should have to give up their animal because they can't afford to feed it.</p>
 </header>
+
+<figure class="hero">
+  <img src="../photos/puppy.jpg" width="1200" height="1220" alt="A tan puppy on a lead sits on a shop floor and looks up at the camera.">
+</figure>
 
 <main>
   <section>
-    <span class="edithint">Click any green text to fix it</span>
     <h2>What we do</h2>
-    <p class="lede" data-edit="about_lede">We collect donated pet food and supplies, and we give them to people who need them. That's the whole of it.</p>
-    <p data-edit="about_1">Noah's Ark Pet Bank operates out of Westminster, Colorado, and serves people across the surrounding Denver metro area. Most of the people we help are unhoused or close to it, and most of them are feeding their animal before they feed themselves. A bag of kibble is a small thing to hand someone. It is often the thing that lets them keep a companion they would otherwise have to surrender.</p>
-    <p data-edit="about_2">We are volunteer-run, and the pet bank is run out of Donna’s home in Westminster. There is no warehouse, no office, no paid staff and no overhead worth mentioning. Food comes in each week and goes back out the same way.</p>
+    <p class="lede">We collect donated pet food and supplies, and we give them to people who need them. That's the whole of it.</p>
+    <p>Noah's Ark Pet Bank operates out of Westminster, Colorado, and serves people across the surrounding Denver metro area. Most of the people we help are unhoused or close to it, and most of them are feeding their animal before they feed themselves. A bag of kibble is a small thing to hand someone. It is often the thing that lets them keep a companion they would otherwise have to surrender.</p>
+    <p>We are volunteer-run, and the pet bank is run out of Donna’s home in Westminster. There is no warehouse, no office, no paid staff and no overhead worth mentioning. Food comes in each week and goes back out the same way.</p>
   </section>
 
   <section>
     <h2>Our story</h2>
-    <p data-edit="story_1">Donna Rangel founded Noah's Ark Pet Bank in June 2023, and the organization was recognized as a nonprofit later that year. She started it for a straightforward reason: she kept meeting people living rough who had a dog or a cat with them, and there was food assistance for the person and nothing for the animal.</p>
-    <p data-edit="story_2">The work took shape quickly. By the end of that first partial year there was a weekly collection route, a quarterly one, and a steady flow of supplies moving out to people who needed them.</p>
+    <p>Donna Rangel founded Noah's Ark Pet Bank in June 2023, and the organization was recognized as a nonprofit later that year. She started it for a straightforward reason: she kept meeting people living rough who had a dog or a cat with them, and there was food assistance for the person and nothing for the animal.</p>
+    <p>The work took shape quickly. By the end of that first partial year there was a weekly collection route, a quarterly one, and a steady flow of supplies moving out to people who needed them.</p>
   </section>
 
   <section>
     <h2>Where the food comes from</h2>
-    <p data-edit="sources_intro">Almost everything we distribute is donated in kind, by organizations with more supply than they can use and by individuals who want to help.</p>
+    <ol class="steps">
+      <li>
+        <figure>
+          <img src="../photos/warehouse.jpg" width="1080" height="1246" loading="lazy" alt="Donation bins in a warehouse, piled high with bags, boxes and pet supplies.">
+          <figcaption data-edit="cap_warehouse">This is where it begins. Many people donate, and many more sort and label.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="../photos/garage.jpg" width="1200" height="900" loading="lazy" alt="A garage workbench stacked with bags and cases of pet food, with labelled bins underneath.">
+          <figcaption data-edit="cap_garage">One place I pick up is out of someone's garage. Another person picks up extra from a shelter and drops it off there for me.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="../photos/shelves.jpg" width="1080" height="1440" loading="lazy" alt="A tall metal shelf at home, filled with cans of dog and cat food.">
+          <figcaption data-edit="cap_shelves">My shelves getting stocked is a blessing to the community.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="../photos/meeting-place.jpg" width="1200" height="1594" loading="lazy" alt="A man in a cap holds a puppy on a lead inside a large shop. The puppy looks up at the camera.">
+          <figcaption data-edit="cap_meeting">A meeting place, where I drop off the dog food.</figcaption>
+        </figure>
+      </li>
+    </ol>
+    <p>Almost everything we distribute is donated in kind, by organizations with more supply than they can use and by individuals who want to help.</p>
     <ul>
-      <li data-edit="source_1"><strong>A weekly pickup</strong> — someone local who works with animal donations sets aside surplus food and supplies for us, and we go and collect it. This is the backbone of what we hand out.</li>
-      <li data-edit="source_2"><strong>A quarterly pickup</strong> — a larger load from a Colorado pet-food charity we hold a membership with.</li>
-      <li data-edit="source_3"><strong>Individual donors</strong> &mdash; bags, cans, leashes, bowls, and occasionally cash for something specific, like kitten formula.</li>
+      <li><strong>A weekly pickup</strong> — someone local who works with animal donations sets aside surplus food and supplies for us, and we go and collect it. This is the backbone of what we hand out.</li>
+      <li><strong>A quarterly pickup</strong> — a larger load from a Colorado pet-food charity we hold a membership with.</li>
+      <li><strong>Individual donors</strong> &mdash; bags, cans, leashes, bowls, and occasionally cash for something specific, like kitten formula.</li>
     </ul>
-    <p data-edit="sources_outro">We are always looking for another regular source. If your shelter, store, church or rescue has surplus pet food, we will come and collect it.</p>
+    <p>We are always looking for another regular source. If your shelter, store, church or rescue has surplus pet food, we will come and collect it.</p>
   </section>
 
   <section>
@@ -123,51 +172,54 @@
       <div><dt>2024 &middot; first full year</dt><dd>$27,525<span class="qual">Received across the year, of which $27,080 went back out to people and their animals.</span></dd></div>
       <div><dt>Cash, in 2023</dt><dd>$125<span class="qual">The entire cash total for the year. Everything else arrived as food and supplies, and left the same way.</span></dd></div>
     </dl>
-    <p class="tip">These come straight from the accounting sheet, so don't edit them here. If they look
-      wrong, say so in question&nbsp;7.</p>
   </section>
 
   <section>
     <div class="callout">
       <h2>If you need pet food, ask us</h2>
-      <p data-edit="help_body">You do not need to prove anything to us, and there is no wrong way to ask. Send an email and tell us what animals you have and roughly where you are, and we will tell you when and where we can get supplies to you.</p>
+      <p>You do not need to prove anything to us, and there is no wrong way to ask. Send an email and tell us what animals you have and roughly where you are, and we will tell you when and where we can get supplies to you.</p>
     </div>
   </section>
 
   <section>
     <h2>Ways to give</h2>
-    <p class="tip"><strong>Donna — this section is back.</strong> Colorado approved the registration
-      on 8 September, so the site can ask for help again. It asks for food, supplies and time. It does
-      not ask for money, because there is no way to send it yet.</p>
     <p>Three kinds of help, all of them useful. We are not set up to take money yet.</p>
     <p><strong>Food and supplies.</strong> Dry dog and cat food is what we run through fastest. We also take treats, bowls, leashes, collars, litter and kitten formula. Email us and we will arrange a drop-off or come and collect it.</p>
     <p><strong>Your time.</strong> Collection runs, sorting, distribution days, and help finding new donation partners. Regular hours are welcome and so is one afternoon.</p>
     <p><strong>A standing supply.</strong> If you run a shelter, rescue, pet store, grocery or church food bank, a recurring donation of surplus stock is the single most valuable thing anyone gives us.</p>
+    <figure class="wide">
+      <img src="../photos/tote-of-cans.jpg" width="1200" height="900" loading="lazy" alt="Looking down into a red shopping bag full of small cans of cat food.">
+      <figcaption data-edit="cap_tote">We love all the donations that come in! Even if just a bag of cat food.</figcaption>
+    </figure>
+    <div class="trio">
+      <figure>
+        <img src="../photos/cat-trees.jpg" width="1200" height="1594" loading="lazy" alt="Two carpeted cat trees.">
+        <figcaption data-edit="cap_trees">We receive more than just animal foods.</figcaption>
+      </figure>
+      <figure>
+        <img src="../photos/bag-holders.jpg" width="720" height="1279" loading="lazy" alt="A carton full of boxed dog-walking bag holders.">
+        <figcaption data-edit="cap_holders">Thank you to another wonderful donation.</figcaption>
+      </figure>
+      <figure>
+        <img src="../photos/pallet.jpg" width="720" height="1279" loading="lazy" alt="A pallet stacked with cartons of puppy food.">
+        <figcaption data-edit="cap_pallet">Thank you for another awesome donation.</figcaption>
+      </figure>
+    </div>
   </section>
 
   <section>
     <h2>What we're working toward</h2>
     <p>Taken from your own 2024 goals, in the order you listed them.</p>
     <ul class="needs">
-      <li><span class="what">A van</span><span class="why" data-edit="need_van">Collection runs happen in a personal car. A van would multiply how much we can pick up in a single trip.</span></li>
-      <li><span class="what">Storage</span><span class="why" data-edit="need_storage">A location with lockable cabinets, so supplies are already waiting where we distribute instead of being carried in each time.</span></li>
-      <li><span class="what">Three more partner churches</span><span class="why" data-edit="need_churches">Working alongside an existing human food bank is the most efficient way we have found to reach people who need us.</span></li>
-      <li><span class="what">A second driver</span><span class="why" data-edit="need_driver">One person currently does the collecting. That is the ceiling on how much we can move.</span></li>
+      <li><span class="what">A van</span><span class="why">Collection runs happen in a personal car. A van would multiply how much we can pick up in a single trip.</span></li>
+      <li><span class="what">Storage</span><span class="why">A location with lockable cabinets, so supplies are already waiting where we distribute instead of being carried in each time.</span></li>
+      <li><span class="what">Three more partner churches</span><span class="why">Working alongside an existing human food bank is the most efficient way we have found to reach people who need us.</span></li>
+      <li><span class="what">A second driver</span><span class="why">One person currently does the collecting. That is the ceiling on how much we can move.</span></li>
     </ul>
   </section>
 
   <section>
-    <h2>Photos</h2>
-    <p>This is the one thing nobody else can supply, and it's the difference between the site looking
-      brand new and looking like a real operation. Four to six is plenty: a distribution day, a
-      collection run, the supplies stacked up, an animal or two. Phone photos are exactly right.</p>
-    <p class="tip"><strong>The easy way:</strong> when you press <em>Send my answers</em>, your email app
-      opens with everything already written out. Attach the photos to that same email before you send
-      it, and everything arrives together.</p>
-  </section>
-
-  <section>
-    <h2>Seven questions</h2>
+    <h2>Three questions about the photos</h2>
     <p>Short answers are fine. &ldquo;Not sure&rdquo; is a real answer.</p>
     <ul class="qs" id="qs"></ul>
   </section>
@@ -176,15 +228,11 @@
     <h2>Anything else</h2>
     <ul class="qs">
       <li>
-        <span class="qtext">Is there anything missing, or anything here you'd rather we didn't say?</span>
-        <span class="qwhy">Goes straight to xian, nowhere else.</span>
+        <span class="qtext">Anything else about the photos?</span>
+        <span class="qwhy">Goes straight to Krink, nowhere else. If you find more photos, send them any time.</span>
         <textarea id="freeform" rows="4" placeholder="Type anything at all"></textarea>
       </li>
     </ul>
-    <p class="tip"><strong>Two things left off the site on purpose.</strong> There's nothing saying
-      donations are tax-deductible, because the IRS paperwork isn't settled and I don't want to claim
-      something we can't back up yet. And your address isn't on the site &mdash; question&nbsp;5 is
-      where you tell me what you want there.</p>
   </section>
 
   <section>
@@ -208,23 +256,15 @@
 (function () {
   "use strict";
   var TO = "xian@pobox.com";
-  var KEY = "ark-site-review";
+  var KEY = "ark-site-review-photos-1";
 
   var QUESTIONS = [
-    { id:"partners", q:"We took the shelter names off the site — does the new wording read right?",
-      why:"You said one of them can be named and one can’t, so for now both are described without names." },
-    { id:"schedule", q:"Is there a regular time and place you hand things out?",
-      why:"If there is, the site should say so. If it's arranged case by case, it should say that instead." },
-    { id:"money", q:"Is there a way for people to send money?",
-      why:"PayPal, Venmo, Zelle, a bank account — anything. If not, the site just won't ask for money." },
-    { id:"phone", q:"Should a phone number be on the site?",
-      why:"Easier for people to reach you. Also harder to ignore the ones you'd rather ignore." },
-    { id:"address", q:"Should a mailing address be on the site?",
-      why:"The address on file right now is your apartment. A PO box would be safer if we ever want one." },
-    { id:"area", q:"Is “Westminster and the surrounding Denver metro area” right?",
-      why:"If you really cover a smaller area, we should say that instead." },
-    { id:"numbers", q:"Do the story and the numbers on this page look right to you?",
-      why:"They came from documents, not from memory, so they might be out of date." }
+    { id:"places", q:"Are the pictures in the right places?",
+      why:"Four of them tell how the food gets from the warehouse to someone's hands. The puppy is at the top." },
+    { id:"captions", q:"Do the words under the pictures sound like you?",
+      why:"They are your own captions, tidied a little. Tap any green one to change it." },
+    { id:"leaveoff", q:"Is there a photo you would rather leave off?",
+      why:"If yes, say which one in the box." }
   ];
   var CHOICES = ["Yes", "No", "Not sure"];
   var state = { text:{}, answers:{}, notes:{}, freeform:"" };
@@ -305,7 +345,7 @@
   }
 
   function summary(){
-    var out = ["Donna's answers on the Noah's Ark site", ""];
+    var out = ["Donna's answers on the photos", ""];
     QUESTIONS.forEach(function(item, i){
       out.push((i+1) + ". " + item.q);
       out.push("   " + (state.answers[item.id] || "(no answer)") +
@@ -314,10 +354,9 @@
     if (state.freeform) out.push("", "Anything else:", state.freeform);
     var keys = Object.keys(state.text);
     if (keys.length) {
-      out.push("", "--- text Donna rewrote ---");
+      out.push("", "--- captions Donna changed ---");
       keys.forEach(function(k){ out.push("", "[" + k + "]", state.text[k]); });
     }
-    out.push("", "(Photos attached to this email, hopefully.)");
     return out.join("\n");
   }
 
@@ -329,15 +368,15 @@
 
   function send(){
     var body = summary();
-    var subject = "My answers on the Noah's Ark website";
+    var subject = "My answers on the photos";
     var href = "mailto:" + TO + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     if (href.length > 1800) {
       copyText(body, function(){});
       href = "mailto:" + TO + "?subject=" + encodeURIComponent(subject) +
-             "&body=" + encodeURIComponent("My answers are copied — paste them here, and attach the photos.\n\n");
+             "&body=" + encodeURIComponent("My answers are copied — paste them here.\n\n");
       say("Answers copied. Paste them into the email that just opened.");
     } else {
-      say("Your email app should be opening. Attach photos before you send.");
+      say("Your email app should be opening.");
     }
     window.location.href = href;
   }
@@ -350,7 +389,7 @@
   $("sendBig").addEventListener("click", send);
   $("copyBig").addEventListener("click", function(){
     copyText(summary(), function(){
-      $("savedNote").textContent = "Copied. Paste it into a text or an email to xian.";
+      $("savedNote").textContent = "Copied. Paste it into a text or an email to Krink.";
     });
   });
 })();
