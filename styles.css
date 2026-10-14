@@ -305,9 +305,11 @@ section > figure, section > .trio { margin-top: 1.5rem; }
   padding: 0;
   max-width: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem 1.5rem;
 }
+@media (min-width: 34rem) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 60rem) { .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 section .steps li + li { margin-top: 0; }
 .steps li { counter-increment: step; }
 .steps img { aspect-ratio: 4 / 5; object-fit: cover; }
