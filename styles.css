@@ -297,7 +297,8 @@ figcaption {
 section > figure, section > .trio { margin-top: 1.5rem; }
 
 .hero { max-width: 26rem; margin: 0 auto; padding: 2rem 1.25rem 0; }
-.hero img { aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 35%; }
+.hero img { aspect-ratio: 4 / 5; object-fit: cover; }
+.hero figcaption { text-align: center; }
 
 .steps {
   list-style: none;
