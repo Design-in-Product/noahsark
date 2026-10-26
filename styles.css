@@ -296,9 +296,9 @@ figcaption {
 }
 section > figure, section > .trio { margin-top: 1.5rem; }
 
-.hero { max-width: 26rem; margin: 0 auto; padding: 2rem 1.25rem 0; }
-.hero img { aspect-ratio: 4 / 5; object-fit: cover; }
-.hero figcaption { text-align: center; }
+/* The hero sits in the same column as main, so its left edge lines up with the text. */
+.hero { max-width: var(--page); margin: 0 auto; padding: 2rem 1.25rem 0; }
+.hero img { width: 100%; max-width: 24rem; aspect-ratio: 4 / 5; object-fit: cover; }
 
 .steps {
   list-style: none;
