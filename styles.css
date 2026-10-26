@@ -120,6 +120,10 @@ section:last-of-type { border-bottom: none; }
 
 section > * + * { margin-top: 1.1rem; }
 
+/* One reading column, centered under the masthead. Grids (.steps, .years, .ways)
+   keep max-width: none and run the full page width, also centered. */
+section > * { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+
 h2 {
   font-size: clamp(1.55rem, 4vw, 2.05rem);
   line-height: 1.15;
@@ -241,7 +245,6 @@ li::marker { color: var(--muted); }
   color: var(--paper);
   border-radius: 4px;
   padding: 1.75rem;
-  max-width: none;
 }
 .callout h2, .callout h3 { color: var(--paper); }
 .callout p { color: #E8DDD0; max-width: var(--measure); }
@@ -296,9 +299,10 @@ figcaption {
 }
 section > figure, section > .trio { margin-top: 1.5rem; }
 
-/* The hero sits in the same column as main, so its left edge lines up with the text. */
-.hero { max-width: var(--page); margin: 0 auto; padding: 2rem 1.25rem 0; }
-.hero img { width: 100%; max-width: 24rem; aspect-ratio: 4 / 5; object-fit: cover; }
+/* The hero sits centered over the reading column. */
+.hero { max-width: 24rem; margin: 0 auto; padding: 2rem 1.25rem 0; box-sizing: content-box; }
+.hero img { width: 100%; }
+.hero figcaption { text-align: center; }
 
 .steps {
   list-style: none;
@@ -321,7 +325,7 @@ section .steps li + li { margin-top: 0; }
   color: var(--marigold-d);
 }
 
-.wide { max-width: var(--measure); }
+.wide { max-width: var(--measure); margin-left: auto; margin-right: auto; }
 .trio {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
